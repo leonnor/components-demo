@@ -1,32 +1,34 @@
 import Button, { ButtonType, ButtonSize } from "./components/Button/button";
 import Menu from "./components/Menu/menu";
 import MenuItem from "./components/Menu/menuItem";
+import SubMenu from "./components/Menu/subMenu";
 
 function App() {
 
   return (
     <div className="App">
       <header className="App-header">
-        <Menu defaultIndex={0} onSelect={(index) => {
+        <Menu defaultIndex='0' onSelect={(index) => {
           console.log(index);
-        }}>
-          <MenuItem index={0}>
+        }} mode='vertical' defaultOpenSubMenus={['2']}>
+          <MenuItem>
             link1
           </MenuItem>
-          <MenuItem index={1} disabled>
+          <MenuItem disabled>
             link2
           </MenuItem>
-          <MenuItem index={2}>
+          <SubMenu title="dropdown">
+            <MenuItem>
+              dropdown1
+            </MenuItem>
+            <MenuItem>
+              dropdown2
+            </MenuItem>
+          </SubMenu>
+          <MenuItem>
             link3
           </MenuItem>
         </Menu>
-
-        <Button disabled> Hello </Button>
-        <Button autoFocus> Hello </Button>
-        <Button btnType={ButtonType.Primary} size={ButtonSize.Large}> Hello </Button>
-        <Button btnType={ButtonType.Danger} size={ButtonSize.Small}> Hello </Button>
-        <Button btnType={ButtonType.Link} href="http://www.baidu.com" target="_blank"> Baidu </Button>
-        <Button btnType={ButtonType.Link} href="http://www.baidu.com" disabled> Baidu </Button>
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
